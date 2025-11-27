@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://v-land-f0d37c44.zappy5.app/sitemap.xml
+Sitemap: https://v-land.zappy5.app/sitemap.xml
