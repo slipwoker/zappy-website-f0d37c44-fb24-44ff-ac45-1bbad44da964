@@ -1,0 +1,544 @@
+<!DOCTYPE html><html lang="he" dir="rtl"><head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>אודות V-LAND — חברת וילנד המובילה בהשקעות נדל"ן</title>
+  <meta name="description" content="הכירו את V-LAND, חברת השקעות בנדל"ן המובילה בישראל. מומחים בהשקעות נדל"ן חכמות ומניבות עם ניסיון רב שנים.">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <!-- Favicons -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon-16x16.png">
+    <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon-32x32.png">
+    <link rel="icon" type="image/png" sizes="48x48" href="assets/favicon-48x48.png">
+    <link rel="icon" type="image/png" sizes="192x192" href="assets/favicon-192x192.png">
+    <link rel="icon" type="image/png" sizes="512x512" href="assets/favicon-512x512.png">
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+<style>
+/* Zappy Attribution Header Styles */
+.zappy-header {
+  position: static;
+  width: 100%;
+  background: white;
+  box-shadow: 0px 4px 19px 0px rgba(0,0,0,0.04);
+  padding: 16px 10px;
+  text-align: center;
+  font-family: 'Nunito', sans-serif;
+  font-size: 16px;
+  color: #4a4a4a;
+  line-height: 21px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 21px;
+}
+
+    .zappy-header p {
+      margin: 0;
+      padding: 0;
+      font-weight: 400;
+      font-size: 16px;
+      line-height: 21px;
+      white-space: nowrap;
+      display: inline-block;
+      vertical-align: baseline;
+      margin-bottom: 0 !important;
+    }
+
+.zappy-header .zappy-link {
+  font-weight: 700;
+  color: #4a4a4a;
+  text-decoration: none;
+  transition: opacity 0.2s;
+}
+
+.zappy-header .zappy-link:hover {
+  opacity: 0.7;
+}</style>
+    <!-- Cookie Consent -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.css" />
+    <script src="https://cdn.jsdelivr.net/npm/vanilla-cookieconsent@3/dist/cookieconsent.umd.js"></script>
+    <!-- Mickidum Accessibility Toolbar -->
+    <script src="https://cdn.jsdelivr.net/gh/mickidum/acc_toolbar/acctoolbar/acctoolbar.min.js"></script>
+<!-- Zappy Analytics -->
+<script>
+(function() {
+  'use strict';
+  
+  // Configuration
+  var config = {
+    websiteId: 'f0d37c44-fb24-44ff-ac45-1bbad44da964',
+    apiUrl: 'https://api.zappy5.com/api/analytics/track',
+    sessionDuration: 30 * 60 * 1000, // 30 minutes
+    visitorDuration: 30 * 24 * 60 * 60 * 1000, // 30 days
+    trackPageViews: true,
+    trackClicks: true,
+    trackFormSubmissions: true
+  };
+  
+  // Generate or retrieve persistent visitor ID (30 days)
+  function getVisitorId() {
+    var visitorKey = 'zappy_visitor_' + config.websiteId;
+    var visitor = null;
+    
+    try {
+      visitor = localStorage.getItem(visitorKey);
+      if (visitor) {
+        var visitorData = JSON.parse(visitor);
+        var now = Date.now();
+        
+        // Check if visitor ID is still valid (30 days)
+        if (now - visitorData.created < config.visitorDuration) {
+          // Update last seen timestamp
+          visitorData.lastSeen = now;
+          localStorage.setItem(visitorKey, JSON.stringify(visitorData));
+          return visitorData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: LocalStorage not available');
+    }
+    
+    // Generate new visitor ID
+    var newVisitorId = 'zv_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      localStorage.setItem(visitorKey, JSON.stringify({
+        id: newVisitorId,
+        created: Date.now(),
+        lastSeen: Date.now()
+      }));
+    } catch (e) {
+      // Continue without local storage
+    }
+    
+    return newVisitorId;
+  }
+  
+  // Generate or retrieve session ID (30 minutes)
+  function getSessionId() {
+    var sessionKey = 'zappy_session_' + config.websiteId;
+    var session = null;
+    
+    try {
+      session = sessionStorage.getItem(sessionKey);
+      if (session) {
+        var sessionData = JSON.parse(session);
+        var now = Date.now();
+        
+        // Check if session is still valid
+        if (now - sessionData.timestamp < config.sessionDuration) {
+          // Update timestamp
+          sessionData.timestamp = now;
+          sessionStorage.setItem(sessionKey, JSON.stringify(sessionData));
+          return sessionData.id;
+        }
+      }
+    } catch (e) {
+      console.warn('Zappy Analytics: SessionStorage not available');
+    }
+    
+    // Generate new session ID
+    var newSessionId = 'zs_' + Date.now() + '_' + Math.random().toString(36).substr(2, 9);
+    
+    try {
+      sessionStorage.setItem(sessionKey, JSON.stringify({
+        id: newSessionId,
+        timestamp: Date.now()
+      }));
+    } catch (e) {
+      // Continue without session storage
+    }
+    
+    return newSessionId;
+  }
+  
+  var visitorId = getVisitorId();
+  var sessionId = getSessionId();
+  
+  // Track an event
+  function trackEvent(eventType, data) {
+    data = data || {};
+    
+    var eventData = {
+      website_id: config.websiteId,
+      event_type: eventType,
+      page_path: window.location.pathname,
+      referrer: document.referrer || 'direct',
+      visitor_id: visitorId,
+      session_id: sessionId,
+      metadata: data
+    };
+    
+    // Use sendBeacon if available (better for page unload events)
+    if (navigator.sendBeacon) {
+      var blob = new Blob([JSON.stringify(eventData)], { type: 'application/json' });
+      navigator.sendBeacon(config.apiUrl, blob);
+    } else {
+      // Fallback to fetch
+      fetch(config.apiUrl, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(eventData),
+        keepalive: true
+      }).catch(function(error) {
+        console.warn('Zappy Analytics: Failed to track event', error);
+      });
+    }
+  }
+  
+  // Track page view
+  if (config.trackPageViews) {
+    trackEvent('pageview', {
+      title: document.title,
+      url: window.location.href
+    });
+  }
+  
+  // Track clicks on important elements
+  if (config.trackClicks) {
+    document.addEventListener('click', function(e) {
+      var target = e.target;
+      
+      // Track button clicks (counted as actions)
+      if (target.tagName === 'BUTTON' || target.closest('button')) {
+        var button = target.tagName === 'BUTTON' ? target : target.closest('button');
+        trackEvent('click', {
+          element: 'button',
+          text: button.textContent.trim().substring(0, 100),
+          id: button.id || null,
+          class: button.className || null
+        });
+      }
+      
+      // Track link clicks (navigation - not counted as actions)
+      else if (target.tagName === 'A' || target.closest('a')) {
+        var link = target.tagName === 'A' ? target : target.closest('a');
+        trackEvent('navigation', {
+          element: 'link',
+          text: link.textContent.trim().substring(0, 100),
+          href: link.href,
+          external: link.hostname !== window.location.hostname
+        });
+      }
+    }, true);
+  }
+  
+  // Track form submissions
+  if (config.trackFormSubmissions) {
+    document.addEventListener('submit', function(e) {
+      var form = e.target;
+      
+      trackEvent('form_submit', {
+        form_id: form.id || null,
+        form_name: form.name || null,
+        form_action: form.action || null,
+        form_method: form.method || 'GET'
+      });
+    }, true);
+  }
+  
+  // Track time on page (send on page unload)
+  var pageLoadTime = Date.now();
+  
+  window.addEventListener('beforeunload', function() {
+    var timeOnPage = Math.floor((Date.now() - pageLoadTime) / 1000); // in seconds
+    
+    trackEvent('page_unload', {
+      time_on_page: timeOnPage,
+      page_path: window.location.pathname
+    });
+  });
+  
+  // Expose tracking function globally for custom events
+  window.zappyAnalytics = {
+    track: trackEvent,
+    getVisitorId: function() { return visitorId; },
+    getSessionId: function() { return sessionId; }
+  };
+  
+})();
+</script>
+<!-- End Zappy Analytics -->
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+<!-- Zappy Attribution Header -->
+<div id="zappy-attribution-header" class="zappy-header" style="display: none;">
+  <p>Happily created by&nbsp;<a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" class="zappy-link">Zappy</a></p>
+</div>
+  <nav class="navbar" id="navbar">
+    <div class="container nav-container">
+      <div class="nav-brand">
+        <a href="/" class="logo-link">
+          <img src="assets/v-land-logo.webp" alt="V-LAND" class="logo" />
+        </a>
+      </div>
+      
+      <button class="mobile-toggle" id="mobileToggle" aria-label="תפריט">
+        <svg class="hamburger-icon" width="24" height="24" viewBox="0 0 24 24" fill="none">
+          <path d="M3 12h18M3 6h18M3 18h18" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+        <svg class="close-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" style="display: none;">
+          <path d="M18 6L6 18M6 6l12 12" stroke="currentColor" stroke-width="2" stroke-linecap="round"></path>
+        </svg>
+      </button>
+      
+      <button class="phone-header-btn" aria-label="התקשרו אלינו">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path>
+        </svg>
+      </button>
+      
+      <ul class="nav-menu" id="navMenu">
+        <li><a href="/projects">פרויקטים</a></li>
+        <li><a href="/about">אודות</a></li>
+      </ul>
+      
+      <div class="nav-cta-container">
+        <li class="nav-cta-item"><a href="/contact" class="nav-cta-btn">צור קשר</a></li>
+      </div>
+    </div>
+  </nav>
+
+  <section class="page-header">
+    <div class="container">
+      <h1>אודות V-LAND - חברת וילנד המובילה</h1>
+      <h3>מומחים בהשקעות נדל"ן חכמות עם ניסיון וידע מוכח</h3>
+    </div>
+  </section>
+
+  <section class="about-story">
+    <div class="container">
+      <div class="story-content">
+        <div class="story-text">
+          <h2>הסיפור שלנו</h2>
+          <p>V-LAND נוסדה מתוך חזון ברור - להפוך השקעות נדל"ן למשהו נגיש, שקוף ומניב עבור כל משקיע. אנו מאמינים שכל אדם ראוי להזדמנות להשקיע בנדל"ן איכותי ולבנות עתיד כלכלי יציב לעצמו ולמשפחתו. כחברת השקעות בנדל"ן מובילה, אנו מתמחים בזיהוי הזדמנויות השקעה ייחודיות ובליווי מקצועי של המשקיעים שלנו לאורך כל הדרך.</p>
+          <p>הצוות המקצועי שלנו מורכב ממומחי נדל"ן, יועצים משפטיים ואנשי מכירות מנוסים, שמטרתם אחת - להבטיח שכל משקיע יקבל את השירות הטוב ביותר ואת ההזדמנות המתאימה ביותר עבורו. אנו גאים בשקיפות המלאה שלנו, באמינות שלנו ובמחויבות שלנו להצלחת המשקיעים שלנו.</p>
+        </div>
+        <div class="story-image">
+          <img data-placeholder="service-10" data-context="Professional V-LAND team meeting in modern office discussing real estate investment strategies with charts and property plans on table" src="assets/v-land-service-service-10.webp" alt="צוות V-LAND במשרד">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="mission-vision">
+    <div class="container">
+      <div class="mission-grid">
+        <div class="mission-card">
+          <div class="mission-icon">
+            <i class="fas fa-bullseye"></i>
+          </div>
+          <h2>המשימה שלנו</h2>
+          <p>להפוך השקעות נדל"ן לנגישות, שקופות ומניבות עבור כל משקיע. אנו שואפים לספק ליווי מקצועי מלא, מרגע הפגישה הראשונה ועד לרישום בטאבו ומעבר לכך. המשימה שלנו היא לבנות אמון ארוך טווח עם המשקיעים שלנו ולהיות השותפים שלהם להצלחה כלכלית.</p>
+        </div>
+        <div class="mission-card">
+          <div class="mission-icon">
+            <i class="fas fa-eye"></i>
+          </div>
+          <h2>החזון שלנו</h2>
+          <p>להיות חברת השקעות בנדל ן המובילה והאמינה ביותר בישראל. אנו רוצים שכל משקיע יחשוב על V-LAND כעל הכתובת הראשונה כשהוא מחפש הזדמנות השקעה איכותית. החזון שלנו הוא ליצור קהילה של משקיעים מרוצים שמשיגים את המטרות הכלכליות שלהם בזכות ההשקעות החכמות שלהם.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="values">
+    <div class="container">
+      <h2>הערכים המנחים אותנו</h2>
+      <div class="values-grid">
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-handshake"></i>
+          </div>
+          <h3>אמינות ושקיפות</h3>
+          <p>אנו מאמינים באמינות מוחלטת ושקיפות מלאה מול המשקיעים שלנו. כל עסקה מתנהלת בצורה פתוחה וברורה, ואנו מספקים את כל המידע הנדרש לקבלת החלטה מושכלת.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-user-tie"></i>
+          </div>
+          <h3>מקצועיות ברמה גבוהה</h3>
+          <p>הצוות שלנו מורכב ממומחים בעלי ניסיון רב שנים בתחום הנדל"ן. אנו מתחייבים לספק שירות מקצועי ברמה הגבוהה ביותר בכל שלב של התהליך.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-heart"></i>
+          </div>
+          <h3>מחויבות ללקוח</h3>
+          <p>הצלחת המשקיעים שלנו היא ההצלחה שלנו. אנו מחויבים לספק את השירות הטוב ביותר ולהיות זמינים עבור הלקוחות שלנו בכל שלב.</p>
+        </div>
+        <div class="value-card">
+          <div class="value-icon">
+            <i class="fas fa-lightbulb"></i>
+          </div>
+          <h3>חדשנות ויצירתיות</h3>
+          <p>אנו תמיד מחפשים דרכים חדשות ויצירתיות לספק ערך למשקיעים שלנו. אנו מאמינים בחשיבה מחוץ לקופסה ובמציאת הזדמנויות ייחודיות.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="why-choose-us">
+    <div class="container">
+      <h2>למה לבחור ב-V-LAND כחברת השקעות בנדל"ן?</h2>
+      <div class="reasons-list">
+        <div class="reason-item">
+          <div class="reason-number">1</div>
+          <div class="reason-content">
+            <h3>ניסיון מוכח בשוק הנדל"ן</h3>
+            <p>צוות המומחים שלנו מביא עמו שנים של ניסיון בשוק הנדל"ן הישראלי. אנו מכירים את השוק לעומקו ויודעים לזהות הזדמנויות השקעה איכותיות. הידע והניסיון שלנו מאפשרים לנו להציע למשקיעים שלנו את האפשרויות הטובות ביותר בשוק.</p>
+          </div>
+        </div>
+        <div class="reason-item">
+          <div class="reason-number">2</div>
+          <div class="reason-content">
+            <h3>ליווי מקצועי מלא</h3>
+            <p>אנו מלווים את המשקיעים שלנו בכל שלב - מהפגישה הראשונית, דרך בחירת הנכס המתאים, משא ומתן, חתימת חוזה ועד לרישום בטאבו. הצוות שלנו זמין לענות על כל שאלה ולספק תמיכה מקצועית לאורך כל התהליך.</p>
+          </div>
+        </div>
+        <div class="reason-item">
+          <div class="reason-number">3</div>
+          <div class="reason-content">
+            <h3>פרויקטים מובחרים</h3>
+            <p>אנו בוחרים בקפידה רבה את הפרויקטים שאנו מציעים למשקיעים שלנו. כל פרויקט עובר בדיקה יסודית ואנו מוודאים שהוא עומד בסטנדרטים הגבוהים ביותר של איכות, מיקום ופוטנציאל תשואה. אנו מציעים רק פרויקטים שאנו בעצמנו היינו משקיעים בהם.</p>
+          </div>
+        </div>
+        <div class="reason-item">
+          <div class="reason-number">4</div>
+          <div class="reason-content">
+            <h3>שקיפות ואמינות מוחלטת</h3>
+            <p>כחברת וילנד מובילה, אנו גאים בשקיפות המלאה שלנו. אנו מספקים את כל המידע הנדרש למשקיעים, כולל מסמכים משפטיים, תכניות בנייה, ניתוחים כלכליים ועוד. אין הפתעות ואין טקסטים קטנים - הכל גלוי ופתוח.</p>
+          </div>
+        </div>
+        <div class="reason-item">
+          <div class="reason-number">5</div>
+          <div class="reason-content">
+            <h3>מחירים הוגנים ותחרותיים</h3>
+            <p>אנו מאמינים שהשקעות נדל"ן איכותיות צריכות להיות נגישות. לכן, אנו מציעים מחירים הוגנים ותחרותיים שמאפשרים למשקיעים להשיג תשואה מצוינת על ההשקעה שלהם. אנו עובדים עם היזמים והקבלנים הטובים ביותר כדי להבטיח את המחירים הטובים ביותר עבור הלקוחות שלנו.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="team-approach">
+    <div class="container">
+      <h2>הגישה המקצועית שלנו</h2>
+      <p class="section-intro">כחברת השקעות בנדל ן מובילה, אנו מאמינים בגישה מקצועית ומותאמת אישית לכל משקיע. התהליך שלנו מתחיל בהבנה מעמיקה של הצרכים והמטרות של המשקיע, ומסתיים בהשקעה מוצלחת שעומדת בציפיות ואף מעבר להן.</p>
+      <div class="approach-steps">
+        <div class="approach-step">
+          <div class="step-icon">
+            <i class="fas fa-comments"></i>
+          </div>
+          <h3>שיחת ייעוץ ראשונית</h3>
+          <p>אנו מתחילים בשיחת ייעוץ מעמיקה כדי להבין את הצרכים, המטרות והתקציב של המשקיע. אנו שואלים שאלות מדויקות ומקשיבים בעיון כדי לספק את הפתרון המתאים ביותר.</p>
+        </div>
+        <div class="approach-step">
+          <div class="step-icon">
+            <i class="fas fa-search"></i>
+          </div>
+          <h3>מציאת ההזדמנות המושלמת</h3>
+          <p>על סמך השיחה הראשונית, אנו מציגים למשקיע את האפשרויות המתאימות ביותר עבורו. אנו מספקים מידע מפורט על כל אפשרות, כולל ניתוחים כלכליים ופוטנציאל תשואה.</p>
+        </div>
+        <div class="approach-step">
+          <div class="step-icon">
+            <i class="fas fa-clipboard-check"></i>
+          </div>
+          <h3>בדיקה ואימות מלא</h3>
+          <p>לפני שאנו ממליצים על השקעה, אנו עורכים בדיקה מקיפה של הנכס, כולל בדיקות משפטיות, תכנוניות וכלכליות. אנו מוודאים שהכל תקין ושאין הפתעות.</p>
+        </div>
+        <div class="approach-step">
+          <div class="step-icon">
+            <i class="fas fa-user-check"></i>
+          </div>
+          <h3>ליווי עד להשלמת העסקה</h3>
+          <p>אנו מלווים את המשקיעים שלנו בכל שלב - משא ומתן, חתימת חוזה, תשלומים ורישום בטאבו. אנו נשארים זמינים גם לאחר השלמת העסקה לכל שאלה או צורך.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="cta-section">
+    <div class="container">
+      <div class="cta-content">
+        <h2>רוצים להכיר אותנו יותר?</h2>
+        <p>צרו קשר עוד היום לשיחת ייעוץ ללא התחייבות</p>
+        <a href="/contact" class="btn-primary btn-large">בואו נדבר</a>
+      </div>
+    </div>
+  </section>
+
+  <a href="https://wa.me/[whatsapp_handle]" target="_blank" class="whatsapp-float" aria-label="WhatsApp" rel="noopener noreferrer">
+    <i class="fab fa-whatsapp"></i>
+  </a>
+
+  
+    <!-- Legal Footer -->
+    <footer class="legal-footer">
+      <div class="container">
+        <div class="footer-main">
+          <div class="all-rights-reserved">
+            <p>© 2025 V-LAND. כל הזכויות שמורות.</p>
+          </div>
+          <div class="footer-social"><a href="https://facebook.com/[facebook_handle]" target="_blank" rel="noopener noreferrer" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+<a href="https://instagram.com/[instagram_handle]" target="_blank" rel="noopener noreferrer" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+<a href="https://wa.me/[whatsapp_handle]" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a></div>
+          <div class="footer-legal">
+            <a href="privacy.html" aria-label="מדיניות פרטיות">
+              מדיניות פרטיות
+            </a>
+            <span class="separator">|</span>
+            <a href="accessibility.html" aria-label="נגישות">
+              נגישות
+            </a>
+            <span class="separator">|</span>
+            <a href="terms.html" aria-label="תנאי שימוש">
+              תנאי שימוש
+            </a>
+          </div>
+        </div>
+        <div class="zappy-attribution">
+          <p>נוצר באמצעות <a href="https://zappy5.com" target="_blank" rel="noopener noreferrer" style="color: inherit; text-decoration: underline;">Zappy</a></p>
+        </div>
+      </div>
+    </footer>
+
+
+<!-- Zappy Attribution Header Script -->
+<script>
+(function() {
+  var websiteId = 'f0d37c44-fb24-44ff-ac45-1bbad44da964';
+  
+  // Don't show header in preview mode
+  var currentUrl = window.location.href;
+  var isPreview = currentUrl.includes('/preview/') || 
+                  currentUrl.includes('/preview-fullscreen/') || 
+                  currentUrl.includes('localhost:5001') ||
+                  currentUrl.includes('localhost:3000');
+  
+  if (isPreview) {
+    return; // Exit early in preview mode
+  }
+  
+  fetch('https://api.zappy5.com/api/website/' + websiteId + '/tier')
+    .then(function(response) { return response.json(); })
+    .then(function(data) {
+      if (data.showAttribution) {
+        var header = document.getElementById('zappy-attribution-header');
+        if (header) {
+          header.style.display = 'block';
+        }
+      }
+    })
+    .catch(function(error) {
+      console.error('Failed to check tier:', error);
+    });
+})();
+</script>
+    <div data-integration="accessibility:toolbar"></div>
+    <script src="script.js"></script>
+</body></html>
